@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CE555EA260B3F5C00844437 /* ViewControllerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE555E9260B3F5C00844437 /* ViewControllerDemo.swift */; };
+		3CB626182610F52700091317 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB626172610F52700091317 /* RestaurantTableViewController.swift */; };
 		3CFA0317260B29D000E6546D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFA0316260B29D000E6546D /* AppDelegate.swift */; };
 		3CFA0319260B29D000E6546D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFA0318260B29D000E6546D /* SceneDelegate.swift */; };
 		3CFA031B260B29D000E6546D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFA031A260B29D000E6546D /* ViewController.swift */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3CE555E9260B3F5C00844437 /* ViewControllerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDemo.swift; sourceTree = "<group>"; };
+		3CB626172610F52700091317 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		3CFA0313260B29D000E6546D /* UIKitDeepLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDeepLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFA0316260B29D000E6546D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CFA0318260B29D000E6546D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 				3CFA031F260B29D200E6546D /* Assets.xcassets */,
 				3CFA0321260B29D200E6546D /* LaunchScreen.storyboard */,
 				3CFA0324260B29D200E6546D /* Info.plist */,
-				3CE555E9260B3F5C00844437 /* ViewControllerDemo.swift */,
+				3CB626172610F52700091317 /* RestaurantTableViewController.swift */,
 			);
 			path = UIKitDeepLearning;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 			files = (
 				3CFA031B260B29D000E6546D /* ViewController.swift in Sources */,
 				3CFA0317260B29D000E6546D /* AppDelegate.swift in Sources */,
+				3CB626182610F52700091317 /* RestaurantTableViewController.swift in Sources */,
 				3CFA0319260B29D000E6546D /* SceneDelegate.swift in Sources */,
-				3CE555EA260B3F5C00844437 /* ViewControllerDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

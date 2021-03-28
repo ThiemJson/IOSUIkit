@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cellIdentifier = "datacell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.imageView?.image = UIImage(named: "restaurant")
+        cell.imageView?.image = UIImage(named: self.restaurantNames[indexPath.row])
         cell.textLabel?.text = restaurantNames[indexPath.row]
         cell.detailTextLabel?.text = "Its good for your health"
         return cell
@@ -29,9 +29,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
 }
 
