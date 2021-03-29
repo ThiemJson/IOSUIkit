@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3CB626182610F52700091317 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB626172610F52700091317 /* RestaurantTableViewController.swift */; };
+		3CE270D32611C2400034A8FE /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE270D22611C2400034A8FE /* RestaurantTableViewCell.swift */; };
 		3CFA0317260B29D000E6546D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFA0316260B29D000E6546D /* AppDelegate.swift */; };
 		3CFA0319260B29D000E6546D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFA0318260B29D000E6546D /* SceneDelegate.swift */; };
 		3CFA031B260B29D000E6546D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFA031A260B29D000E6546D /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3CB626172610F52700091317 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		3CE270D22611C2400034A8FE /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		3CFA0313260B29D000E6546D /* UIKitDeepLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDeepLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFA0316260B29D000E6546D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CFA0318260B29D000E6546D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				3CFA0321260B29D200E6546D /* LaunchScreen.storyboard */,
 				3CFA0324260B29D200E6546D /* Info.plist */,
 				3CB626172610F52700091317 /* RestaurantTableViewController.swift */,
+				3CE270D22611C2400034A8FE /* RestaurantTableViewCell.swift */,
 			);
 			path = UIKitDeepLearning;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CE270D32611C2400034A8FE /* RestaurantTableViewCell.swift in Sources */,
 				3CFA031B260B29D000E6546D /* ViewController.swift in Sources */,
 				3CFA0317260B29D000E6546D /* AppDelegate.swift in Sources */,
 				3CB626182610F52700091317 /* RestaurantTableViewController.swift in Sources */,
