@@ -47,37 +47,37 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        // Create an option menu as an action sheet
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-        
-        // Add actions to the menu
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
-        
-        // Check-in action
-        let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {
-            (action:UIAlertAction!) -> Void in
-            
-            let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
-        })
-        optionMenu.addAction(checkInAction)
-        
-        // Add Call action
-        let callActionHandler = { (action:UIAlertAction!) -> Void in
-            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertMessage, animated: true, completion: nil)
-        }
-        
-        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-        
-        // Display the menu
-        present(optionMenu, animated: true, completion: nil)
-    }
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //
+    //        // Create an option menu as an action sheet
+    //        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+    //
+    //        // Add actions to the menu
+    //        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    //        optionMenu.addAction(cancelAction)
+    //
+    //        // Check-in action
+    //        let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {
+    //            (action:UIAlertAction!) -> Void in
+    //
+    //            let cell = tableView.cellForRow(at: indexPath)
+    //            cell?.accessoryType = .checkmark
+    //        })
+    //        optionMenu.addAction(checkInAction)
+    //
+    //        // Add Call action
+    //        let callActionHandler = { (action:UIAlertAction!) -> Void in
+    //            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+    //            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    //            self.present(alertMessage, animated: true, completion: nil)
+    //        }
+    //
+    //        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHandler)
+    //        optionMenu.addAction(callAction)
+    //
+    //        // Display the menu
+    //        present(optionMenu, animated: true, completion: nil)
+    //    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -155,14 +155,19 @@ class RestaurantTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showRestaurantDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! RestaurantDetailViewController
+                destinationController.restaurantImageName = restaurantNames[indexPath.row]
+                destinationController.testing = Int(restaurantNames[indexPath.row])
+            }
+        }
+    }
 }
