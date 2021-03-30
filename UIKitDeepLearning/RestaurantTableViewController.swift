@@ -10,7 +10,7 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     var restaurantNames = ["Cafe Deadend", "Homei", "Teakha", "Cafe Loisl", "Petite Oyster", "For Kee Restaurant", "Po's Atelier", "Bourke Street Bakery", "Haigh's Chocolate", "Palomino Espresso", "Upstate", "Traif", "Graham Avenue Meats", "Waffle & Wolf", "Five Leaves", "Cafe Lore", "Confessional", "Barrafina", "Donostia", "Royal Oak", "CASK Pub and Kitchen"]
     var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
-
+    
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
     
     override func viewDidLoad() {
@@ -47,6 +47,37 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Create an option menu as an action sheet
+        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        
+        // Add actions to the menu
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        
+        // Check-in action
+        let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        })
+        optionMenu.addAction(checkInAction)
+        
+        // Add Call action
+        let callActionHandler = { (action:UIAlertAction!) -> Void in
+            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertMessage, animated: true, completion: nil)
+        }
+        
+        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHandler)
+        optionMenu.addAction(callAction)
+        
+        // Display the menu
+        present(optionMenu, animated: true, completion: nil)
+    }
     
     /*
      // Override to support conditional editing of the table view.
@@ -56,17 +87,52 @@ class RestaurantTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //        if editingStyle == .delete {
+        //            // Delete the row from the data source
+        //            restaurantNames.remove(at: indexPath.row)
+        //            restaurantLocations.remove(at: indexPath.row)
+        //            restaurantTypes.remove(at: indexPath.row)
+        //        }
+        //        tableView.deleteRows(at: [indexPath], with: .top)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            // Delete the row from the data source
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantLocations.remove(at: indexPath.row)
+            self.restaurantTypes.remove(at: indexPath.row)
+            
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // Call completion handler to dismiss the action button
+            completionHandler(true)
+        }
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, sourceView, completionHandler) in
+            
+            let activityController : UIActivityViewController
+            let defaultText = "Just checking in at " + self.restaurantNames[indexPath.row]
+            if let imageView = UIImage(named: self.restaurantNames[indexPath.row]){
+                activityController = UIActivityViewController(activityItems: [defaultText, imageView], applicationActivities: nil)
+            }
+            else {
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
+            
+            
+            self.present(activityController, animated: true, completion: nil)
+            completionHandler(true)
+            
+        }
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        
+        return swipeConfiguration
+    }
     
     /*
      // Override to support rearranging the table view.
